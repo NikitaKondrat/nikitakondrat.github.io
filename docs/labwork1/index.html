@@ -1,30 +1,30 @@
 <!doctype html>
 <html data-bs-theme="">
     <head>
-                <title>Портфолио Никиты Кондрата</title>
+                <title>labwork1 Tutorial - Портфолио Никиты Кондрата</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <meta name="description" content="Студент ИТМО">
-            <link rel="canonical" href="https://nikitakondrat.github.io/">
+            
+            <link rel="canonical" href="https://nikitakondrat.github.io/labwork1/">
             <meta name="author" content="Никита Кондрат">
 
             
-                <link  rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+                <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
             
 
-        <script>var base_url = '.';</script>
+        <script>var base_url = '..';</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/css/root.min.css">
-            <link rel="stylesheet" href="assets/css/main.min.css">
-            <link rel="stylesheet" href="assets/css/media.min.css">
-            <link rel="stylesheet" href="assets/css/mkdocstrings.min.css">
-                <script src="search/main.js"></script>
+            <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../assets/css/root.min.css">
+            <link rel="stylesheet" href="../assets/css/main.min.css">
+            <link rel="stylesheet" href="../assets/css/media.min.css">
+            <link rel="stylesheet" href="../assets/css/mkdocstrings.min.css">
+                <script src="../search/main.js"></script>
 
             
                 
@@ -59,25 +59,25 @@
         <li class="nav-item" id="component-menu">
             <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class=" active 
-                            nav-link text-gray text-decoration-none" href=".">[Main page]</a>
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="..">[Main page]</a>
                         </li>
                         <li class="nav-item">
                             <a class="
-                            nav-link text-gray text-decoration-none" href="about/">[About author]</a>
+                            nav-link text-gray text-decoration-none" href="../about/">[About author]</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="
+                            <a class=" active 
                             nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Labworks 2 semester]</a>
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="labwork1/" class="dropdown-item text-decoration-none ">labwork1 Tutorial</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">labwork1 Tutorial</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="labwork2/" class="dropdown-item text-decoration-none ">labwork2 Tutorial</a>
+        <a href="../labwork2/" class="dropdown-item text-decoration-none ">labwork2 Tutorial</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -155,7 +155,7 @@
             <main><!-- block search -->
 <div class="collapse" id="collapseExample">
     <div role="search" class="search-box">
-        <form id="rtd-search-form" class="wy-form" action="./search.html" method="get">
+        <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
             <input type="text" name="q" class="search-query"
             placeholder="Search docs" title="Type search term here" />
         </form>
@@ -169,19 +169,41 @@
     <article>
         <header>
             
-                <h1 class=" title" id="component-title">Main page</h1>
+                <h1 class=" title" id="component-title">labwork1 Tutorial</h1>
             
         </header>
-        <p><h2 id="_1">Добро пожаловать на сайт с портфолио Никиты Кондрата</h2>
-<h3 id="_2">Немного о авторе</h3>
+        <p><h2 id="_1">Первая лабораторная работа</h2>
 <ul>
-<li><em>Студент 1 курса университета ИТМО. Группа Р3123</em></li>
+<li>Создан сайт, который работает по ссылке https://nikitakondrat.github.io/</li>
+<li>Использован mkdocs и в качестве theme выбран simple-blog</li>
+<li>Также работает поиск и справа вверху есть ссылка еа профиль GitHub</li>
 </ul>
-<hr />
-<h3 id="_3">Проекты</h3>
-<ul>
-<li><em>Страница автора на <a href="https://github.com/NikitaKondrat">GitHub</a></em></li>
-</ul></p>
+<p>Так выглядят настройки mkdocs.yml на 21.02.2026</p>
+<pre><code>site_name: Портфолио Никиты Кондрата
+site_url: https://nikitakondrat.github.io/
+site_description: "Студент ИТМО"
+site_author: Никита Кондрат
+
+nav:
+- Main page: index.md
+- About author: about.md
+- Labworks 2 semester:
+    labwork1 Tutorial: labwork1.md
+    labwork2 Tutorial: labwork2.md
+
+theme:
+name: simple-blog
+avatar: images/avatar.jpg
+author: Никита Кондрат
+
+repo_url: https://github.com/NikitaKondrat/demo702
+repo_name: NikitaKondrat/demo702
+
+plugins:
+- search:
+    lang: ["ru"]
+    separator: '[\s\-]+'
+</code></pre></p>
     </article>
 </section>
 <!-- endblock -->
@@ -193,13 +215,13 @@
                     <!-- block preview -->
     <div class="preview row row-cols-md-3 text-center pt-md-3" id="component-preview">
         <div class="col themed-grid-col">
-            <a rel="prev" class="nav-link disabled">
+            <a rel="prev" href="../about/" class="nav-link">
                 <i class="fa fa-arrow-left"></i> Previous
             </a>
         </div>
         <div class="col themed-grid-col"></div>
         <div class="col themed-grid-col">
-            <a rel="next" href="about/" class="nav-link">
+            <a rel="next" href="../labwork2/" class="nav-link">
                 Next <i class="fa fa-arrow-right"></i>
             </a>
         </div>
@@ -229,10 +251,10 @@
             
         </div>
 
-            <script src="assets/js/jquery-3.3.1.slim.min.js""></script>
-            <script src="assets/js/bootstrap.bundle.min.js""></script>
-            <script src="assets/js/main.min.js""></script>
-                <script src="search/main.js" defer></script>
+            <script src="../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../assets/js/main.min.js""></script>
+                <script src="../search/main.js" defer></script>
 
     </body>
 

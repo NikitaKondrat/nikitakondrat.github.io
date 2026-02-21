@@ -1,2 +1,0 @@
-# nikitakondrat.github.io
-
