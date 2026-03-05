@@ -1,7 +1,7 @@
 <!doctype html>
 <html data-bs-theme="">
     <head>
-                <title>labwork2 Tutorial - Портфолио Никиты Кондрата</title>
+                <title>labwork 2 Tutorial - Портфолио Никиты Кондрата</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,12 +72,12 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../labwork1/" class="dropdown-item text-decoration-none ">labwork1 Tutorial</a>
+        <a href="../labwork1/" class="dropdown-item text-decoration-none ">labwork 1 Tutorial</a>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">labwork2 Tutorial</a>
+        <a href="./" class="dropdown-item text-decoration-none  active ">labwork 2 Tutorial</a>
     </li>
 <!-- endblock -->
                             </ul>
@@ -169,10 +169,85 @@
     <article>
         <header>
             
-                <h1 class=" title" id="component-title">labwork2 Tutorial</h1>
+                <h1 class=" title" id="component-title">labwork 2 Tutorial</h1>
             
         </header>
-        <p><h2 id="_1">Вторая лабораторная работа</h2></p>
+        <p><h1 id="_1">Вторая лабораторная работа</h1>
+<h3 id="_2">Цель работы</h3>
+<p>Освоить базовые операции с массивами и матрицами в библиотеке NumPy, реализовать статистический анализ данных и визуализацию результатов с использованием Matplotlib</p>
+<h3 id="_3">Выполненные функции:</h3>
+<h6 id="1">1. Создание и обработка массивов</h6>
+<ul>
+<li><strong><code>create_vector()</code></strong> — создает одномерный массив целых чисел от 0 до 9</li>
+<li><strong><code>create_matrix()</code></strong> — генерирует матрицу 5×5 со случайными числами в диапазоне [0, 1)</li>
+<li><strong><code>reshape_vector(vec)</code></strong> — изменяет форму вектора из (10,) в матрицу (2, 5)</li>
+<li><strong><code>transpose_matrix(mat)</code></strong> — выполняет транспонирование матрицы (строки ↔ столбцы)</li>
+</ul>
+<h6 id="2">2. Векторные операции</h6>
+<ul>
+<li><strong><code>vector_add(a, b)</code></strong> — выполняет поэлементное сложение двух векторов</li>
+<li><strong><code>scalar_multiply(vec, scalar)</code></strong> — умножает каждый элемент вектора на заданное число</li>
+<li><strong><code>elementwise_multiply(a, b)</code></strong> — выполняет поэлементное умножение двух массивов одинаковой формы</li>
+<li><strong><code>dot_product(a, b)</code></strong> — вычисляет скалярное произведение двух векторов</li>
+</ul>
+<h6 id="3">3. Матричные операции</h6>
+<ul>
+<li><strong><code>matrix_multiply(a, b)</code></strong> — выполняет матричное умножение</li>
+<li><strong><code>matrix_determinant(a)</code></strong> — вычисляет определитель квадратной матрицы</li>
+<li><strong><code>matrix_inverse(a)</code></strong> — находит обратную матрицу для невырожденной квадратной матрицы</li>
+<li><strong><code>solve_linear_system(a, b)</code></strong> — решает систему линейных уравнений вида Ax = b</li>
+</ul>
+<h6 id="4">4. Статистический анализ</h6>
+<ul>
+<li><strong><code>load_dataset(path)</code></strong> — загружает данные из CSV-файла и преобразует их в NumPy-массив</li>
+<li><strong><code>statistical_analysis(data)</code></strong> — вычисляет основные статистики: среднее, медиану, стандартное отклонение, минимум, максимум и перцентили (25%, 75%)</li>
+<li><strong><code>normalize_data(data)</code></strong> — выполняет Min-Max нормализацию данных, приводя их к диапазону [0, 1]</li>
+</ul>
+<h6 id="5">5. Визуализация</h6>
+<ul>
+<li><strong><code>plot_histogram(data)</code></strong> — строит гистограмму распределения значений (оценок)</li>
+<li><strong><code>plot_heatmap(data)</code></strong> — визуализирует матрицу корреляций в виде тепловой карты</li>
+<li><strong><code>plot_line(x, y)</code></strong> — строит линейный график зависимости одной величины от другой</li>
+</ul>
+<h3 id="_4">Используемые библиотеки</h3>
+<table>
+<thead>
+<tr>
+<th>Библиотека</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>numpy</code></td>
+<td>Работа с многомерными массивами, линейная алгебра</td>
+</tr>
+<tr>
+<td><code>pandas</code></td>
+<td>Загрузка и предобработка CSV-данных</td>
+</tr>
+<tr>
+<td><code>matplotlib</code></td>
+<td>Построение статических графиков</td>
+</tr>
+<tr>
+<td><code>seaborn</code></td>
+<td>Визуализация статистических данных, тепловые карты</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">Структура проекта</h3>
+<pre><code>LR-2/
+├── main.py # Основной код с функциями
+├── test.py # Тесты
+├── LR-2-main.py # Критерии оценивания лабораторной работы
+├── data/
+│ └── students_scores.csv # Исходные данные для графиков
+├── plots/ # Сгенерированные графики
+│ ├── histogram.png
+│ ├── heatmap.png
+│ └── plot_line.png
+</code></pre></p>
     </article>
 </section>
 <!-- endblock -->
