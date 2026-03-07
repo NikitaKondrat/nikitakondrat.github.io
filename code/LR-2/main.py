@@ -225,13 +225,11 @@ def plot_histogram(data: np.ndarray) -> None:
     Args:
         data (numpy.ndarray): Данные для гистограммы
     """
-    os.makedirs("plots", exist_ok=True)
     plt.figure(figsize=(8, 6))
     plt.hist(data, bins=4, edgecolor='black', color='skyblue', density=False)
     plt.title("Гистограмма распределения оценок по математике")
     plt.xlabel("Оценка")
     plt.ylabel("Количество студентов")
-    plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
     plt.savefig("plots/histogram.png", dpi=150, bbox_inches='tight')
     plt.close()
 
@@ -243,9 +241,10 @@ def plot_heatmap(data: np.ndarray) -> None:
     Args:
         matrix (numpy.ndarray): Матрица корреляции
     """
-    os.makedirs("plots", exist_ok=True)
     plt.figure(figsize=(8, 6))
     sns.heatmap(data, annot=True, fmt=".2f", cmap="coolwarm", square=True, cbar_kws={"label": "Корреляция"})
+    plt.xlabel("Предмет")
+    plt.ylabel("Номер студента")
     plt.title("Тепловая карта корреляции предметов")
     plt.savefig("plots/heatmap.png", dpi=150, bbox_inches='tight')
     plt.close()
@@ -259,13 +258,11 @@ def plot_line(x: np.ndarray, y: np.ndarray) -> None:
         x (numpy.ndarray): Номера студентов
         y (numpy.ndarray): Оценки студентов
     """
-    os.makedirs("plots", exist_ok=True)
     plt.figure(figsize=(8, 6))
     plt.plot(x, y, marker='o', linestyle='-', color='green', linewidth=2, markersize=8)
     plt.title("Зависимость оценки по математике от номера студента")
     plt.xlabel("Номер студента")
     plt.ylabel("Оценка по математике")
-    plt.grid(True, alpha=0.3)
     plt.savefig("plots/plot_line.png", dpi=150, bbox_inches='tight')
     plt.close()
 
@@ -279,8 +276,7 @@ if __name__ == "__main__":
 
     # 2. Тепловая карта корреляции
     data_numeric = data
-    corr_matrix = np.corrcoef(data_numeric.T)
-    plot_heatmap(corr_matrix)
+    plot_heatmap(data_numeric)
 
     # 3. Линейный график
     student_ids = np.arange(1, len(math_scores) + 1)
