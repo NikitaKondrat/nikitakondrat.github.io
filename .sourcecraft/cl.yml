@@ -7,9 +7,9 @@ on:
 workflows:
   build-site:
     tasks:
-      - name: build-and-publish-src
+      - name: build-and-publish-site
         cubes:
-          - name: build-mkdocs-src
+          - name: build-mkdocs-site
             image: docker.io/library/python:3.13-slim
             script:
               - python -m pip install --upgrade pip
@@ -20,7 +20,7 @@ workflows:
 
           - name: publish-to-release-branch
             script:
-              - git checkout -b main
+              - git checkout -b release
               - git add ../docs
               - "git commit -m \"feat: автоматическое обновление сайта\""
               - "git push origin release -f"
