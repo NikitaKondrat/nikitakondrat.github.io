@@ -1,15 +1,16 @@
+on:
+  push:
+    branches: [main]
+
 workflows:
   build-site:
-    on:
-      push:
-        branches: [main]
-
     tasks:
-      - name: publish-to-release-branch
+      - name: deploy
         script:
+          - echo "CI запущен!"
           - git checkout -b release 2>/dev/null || git checkout release
           - git rm -rf . 2>/dev/null || true
-          - cp -r docs/* ./
+          - cp -r docs/* ./ 2>/dev/null || true
           - git add .
           - git commit -m "feat: обновлен сайт" || true
           - git push soursecraft release -f
