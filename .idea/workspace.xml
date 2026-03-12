@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="98169549-6b83-46d7-94ec-add47b722ef8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sourcecraft/cl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.sourcecraft/ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
