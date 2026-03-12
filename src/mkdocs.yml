@@ -10,8 +10,6 @@ nav:
       labwork 1 Tutorial: labwork1.md
       labwork 2 Tutorial: labwork2.md
 
-docs_dir: src/docs
-site_dir: ../docs
 
 theme:
   name: simple-blog

@@ -1,16 +1,26 @@
 on:
   push:
-    branches: [main]
+    workflows: build-site
+    filter:
+      branches: main
 
 workflows:
   build-site:
     tasks:
-      - name: deploy
-        script:
-          - echo "CI запущен!"
-          - git checkout -b release 2>/dev/null || git checkout release
-          - git rm -rf . 2>/dev/null || true
-          - cp -r docs/* ./ 2>/dev/null || true
-          - git add .
-          - git commit -m "feat: обновлен сайт" || true
-          - git push soursecraft release -f
+      - name: build-and-publish-site
+        cubes:
+          - name: build-mkdocs-site
+            image: docker.io/library/python:3.13-slim
+            script:
+              - python -m pip install --upgrade pip
+              - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
+              - mkdocs build -f src/mkdocs.yml -d ./site
+              - echo "Сайт собран в ./site"
+              - ls -la ./site
+
+          - name: publish-to-release-branch
+            script:
+              - git checkout -b release
+              - git add ./site
+              - "git commit -m \"feat: автоматическое обновление сайта\""
+              - "git push soursecraft release -f"
