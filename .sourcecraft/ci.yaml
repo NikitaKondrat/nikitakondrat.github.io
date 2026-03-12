@@ -14,13 +14,18 @@ workflows:
             script:
               - python -m pip install --upgrade pip
               - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              - mkdocs build -f mkdocs.yml -d ../site
-              - echo "Сайт собран в ../site"
-              - ls -la ../site
+              - mkdocs build -f src/mkdocs.yml -d /sourcecraft/workspace/site
+              - echo "Сайт собран в /sourcecraft/workspace/site"
+              - ls -la /sourcecraft/workspace/site
 
           - name: publish-to-release-branch
+            image: docker.io/alpine/git:latest
             script:
-              - git checkout -b release
-              - git add ./site
-              - "git commit -m \"feat: автоматическое обновление сайта\""
-              - "git push soursecraft release -f"
+              - git config --global user.email "ci@sourcecraft.dev"
+              - git config --global user.name "SourceCraft CI"
+              - git checkout -b release 2>/dev/null || git checkout release
+              - git rm -rf . 2>/dev/null || true
+              - cp -r /sourcecraft/workspace/site/* ./
+              - git add .
+              - git commit -m "feat: обновлен сайт [ci skip]" || true
+              - git push sourcecraft release -f
