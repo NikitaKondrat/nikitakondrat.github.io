@@ -7,22 +7,13 @@ on:
 workflows:
   build-site:
     tasks:
-      - name: build-and-publish-site
-        cubes:
-          - name: build-mkdocs-site
-            image: docker.io/library/python:3.13-slim
-            script:
-              - python -m pip install --upgrade pip
-              - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              - cd ./src && mkdocs build -d ../docs
-              - echo "Сайт собран в папке ../docs"
-              - ls -la ../docs
-
-          - name: publish-to-release-branch
-            script:
-              - git checkout -b release
-              - rm -rf ./docs
-              - cp -r ../docs ./docs
-              - git add ../docs
-              - "git commit -m \"feat: автоматическое обновление сайта\""
-              - "git push soursecraft release -f"
+      - name: publish-to-release-branch
+        script:
+          - git config --global user.email "ci@sourcecraft.dev"
+          - git config --global user.name "SourceCraft CI"
+          - git checkout -b release 2>/dev/null || git checkout release
+          - git rm -rf . 2>/dev/null || true
+          - cp -r ../docs/* ./ 2>/dev/null || cp -r docs/* ./
+          - git add .
+          - git commit -m "feat: обновлен сайт" || true
+          - git push sourcecraft release -f

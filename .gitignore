@@ -164,10 +164,8 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-/src/*
-!/src/mkdocs.yml
-!/src/docs/
-!/src/docs/**/*
+# mkdocs documentation
+/src
 
 # mypy
 .mypy_cache/
