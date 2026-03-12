@@ -7,8 +7,8 @@ nav:
   - Main page: index.md
   - About author: about.md
   - Labworks 2 semester:
-      labwork 1 Tutorial: labwork1.md
-      labwork 2 Tutorial: labwork2.md
+      - labwork 1 Tutorial: labwork1.md
+      - labwork 2 Tutorial: labwork2.md
 
 
 theme:
