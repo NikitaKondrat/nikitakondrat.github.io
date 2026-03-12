@@ -1,26 +1,34 @@
 on:
   push:
-    workflows: build-site
-    filter:
-      branches: main
+    branches:
+      - main
 
 workflows:
-  build-site:
+  build-and-deploy:
     tasks:
-      - name: build-and-publish-site
+      - name: build-mkdocs-site
         cubes:
-          - name: build-mkdocs-site
+          - name: build-with-mkdocs
             image: docker.io/library/python:3.13-slim
             script:
               - python -m pip install --upgrade pip
-              - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
               - cd ./src && mkdocs build -d ../docs
-              - echo "Сайт собран в папке ../docs"
+              - echo "Сайт успешно собран в папке docs/"
               - ls -la ../docs
 
-          - name: publish-to-release-branch
+      - name: publish-to-release-branch
+        needs: [build-mkdocs-site]
+        cubes:
+          - name: git-push
+            image: alpine/git
             script:
+              - git config --global user.name "SourceCraft Bot"
+              - git config --global user.email "bot@sourcecraft.local"
+
               - git checkout -b release
+
               - git add ../docs
-              - "git commit -m \"feat: автоматическое обновление сайта\""
-              - "git push origin release -f"
+
+              - git commit -m "chore: авто-обновление сайта из ветки main" || echo "Нет изменений для коммита"
+
+              - git push origin release -f
