@@ -14,7 +14,7 @@ workflows:
             script:
               - python -m pip install --upgrade pip
               - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              - mkdocs build -d ./site
+              - cd docs && mkdocs build -d ../site
               - echo "Сайт собран в папке ./site"
               - ls -la ./site
 
@@ -23,4 +23,4 @@ workflows:
               - git checkout -b release
               - git add ./site
               - "git commit -m \"feat: автоматическое обновление сайта\""
-              - "git push origin release -f"
+              - "git push soursecraft release -f"
