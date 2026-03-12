@@ -1,19 +1,26 @@
-on:
-  push:
-    workflows: build-site
-    filter:
-      branches: main
+# Файл: .sourcecraft/ci.yaml
 
 workflows:
   build-site:
+    # ✅ Правильный триггер: запуск при пуше в main
+    on:
+      push:
+        branches: [main]
+    
     tasks:
       - name: publish-to-release-branch
         script:
           - git config --global user.email "ci@sourcecraft.dev"
           - git config --global user.name "SourceCraft CI"
+          
+          # Переключаемся на ветку release (создаём, если нет)
           - git checkout -b release 2>/dev/null || git checkout release
+          
+          # Очищаем ветку и копируем готовый сайт из папки docs
           - git rm -rf . 2>/dev/null || true
-          - cp -r ../docs/* ./ 2>/dev/null || cp -r docs/* ./
+          - cp -r docs/* ./ 2>/dev/null || cp -r ../docs/* ./
+          
+          # Коммит и пуш
           - git add .
-          - git commit -m "feat: обновлен сайт" || true
+          - git commit -m "feat: обновлен сайт [ci skip]" || true
           - git push sourcecraft release -f
