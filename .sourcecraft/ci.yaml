@@ -1,31 +1,13 @@
 on:
   push:
-    workflows: build-site
-    filter:
-      branches: main
+    - workflows: deploy-site
+      filter:
+        branches: ["main", "master"]
+        paths: ["docs/**"]
 
 workflows:
-  build-site:
+  deploy-site:
     tasks:
-      - name: build-and-publish-site
-        cubes:
-          - name: build-mkdocs-site
-            image: docker.io/library/python:3.13-slim
-            script:
-              - python -m pip install --upgrade pip
-              - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              - mkdocs build -f src/mkdocs.yml -d /sourcecraft/workspace/site
-              - echo "Сайт собран в /sourcecraft/workspace/site"
-              - ls -la /sourcecraft/workspace/site
-
-          - name: publish-to-release-branch
-            image: docker.io/alpine/git:latest
-            script:
-              - git config --global user.email "ci@sourcecraft.dev"
-              - git config --global user.name "SourceCraft CI"
-              - git checkout -b release 2>/dev/null || git checkout release
-              - git rm -rf . 2>/dev/null || true
-              - cp -r /sourcecraft/workspace/site/* ./
-              - git add .
-              - git commit -m "feat: обновлен сайт [ci skip]" || true
-              - git push sourcecraft release -f
+      - name: deploy
+        script:
+          - git push sourcecraft
