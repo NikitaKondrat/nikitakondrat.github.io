@@ -14,4 +14,4 @@ workflows:
               - git checkout -B main
               - git add ./docs
               - "git commit -m \"feat: автоматическое обновление сайта\" || true"
-              - "git push sourcecraft main -f"
+              - "git push origin main -f"
