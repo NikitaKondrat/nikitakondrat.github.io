@@ -11,5 +11,6 @@ workflows:
       - name: deploy
         cubes:
           - name: push-to-sourcecraft
+            image: docker.io/library/alpine/git
             script:
               - git push sourcecraft
