@@ -1,13 +1,16 @@
 on:
   push:
-    - workflows: deploy-site
+    - workflows: [deploy-site]
       filter:
-        branches: ["main", "master"]
-        paths: ["docs/**"]
+        branches: [main, master]
+        paths: [docs/**]
 
 workflows:
   deploy-site:
     tasks:
       - name: deploy
-        script:
-          - git push sourcecraft
+        cubes:
+          - name: push-to-sourcecraft
+            image: docker.io/library/alpine/git
+            script:
+              - git push sourcecraft
