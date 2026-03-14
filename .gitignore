@@ -164,12 +164,6 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/src/*
-!/src/mkdocs.yml
-!/src/docs/
-!/src/docs/**/*
-
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -184,12 +178,11 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
-#   JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#   and can be added to the global gitignore or merged into this file.  For a more nuclear
-#   option (not recommended) you can uncomment the following to ignore the entire idea folder.
-# .idea/
+# PyCharm / JetBrains IDE
+.idea/            # <<< ADDED
+*.iml             # <<< ADDED
+*.ipr             # <<< ADDED
+*.iws             # <<< ADDED
 
 # Abstra
 #   Abstra is an AI-powered process automation framework.
@@ -217,3 +210,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# === Project-specific ignores === # <<< ADDED
+requirements.txt  # <<< ADDED
+src/              # <<< ADDED
