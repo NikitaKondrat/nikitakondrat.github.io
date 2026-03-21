@@ -12,17 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+        uses: actions/checkout@v1
 
       - name: Deploy docs
-        run: mkdocs gh-deploy --force --config-file src/mkdocs.yml
+        uses: mhausenblas/mkdocs-deploy-gh-pages@nomaterial
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: src/mkdocs.yml
+          REQUIREMENTS: requirements.txt
