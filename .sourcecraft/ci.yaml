@@ -14,18 +14,13 @@ workflows:
             script:
               - python -m pip install --upgrade pip
               - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              # Абсолютный путь для надёжности
-              - mkdocs build -f src/mkdocs.yml -d /sourcecraft/workspace/docs
-              - echo "✅ Сайт собран в /sourcecraft/workspace/docs"
-              - ls -la /sourcecraft/workspace/docs
+              - cd ./src && mkdocs build -d ../docs
+              - echo "Сайт собран в папке ../docs"
+              - ls -la ../docs
 
           - name: publish-to-release-branch
             script:
-              - git config --global user.name "sourcecraft-ci"
-              - git config --global user.email "ci@sourcecraft.local"
-              # Создаём или переключаемся на ветку release
-              - git checkout -b release 2>/dev/null || git checkout release
-              # Добавляем файлы из абсолютного пути, но относительно корня репозитория
-              - git add docs/
-              - git commit -m "feat: автоматическое обновление сайта" || echo "📦 Нет изменений для коммита"
-              - git push origin release -f
+              - git checkout -b release
+              - git add ./docs
+              - "git commit -m \"feat: автоматическое обновление сайта\""
+              - "git push origin release -f"
