@@ -1,3 +1,9 @@
+on:
+  push:
+    workflows: build-site
+    filter:
+      branches: main
+
 workflows:
   build-site:
     tasks:
@@ -15,9 +21,7 @@ workflows:
 
           - name: publish-to-release-branch
             script:
-              - git config --global user.name "sourcecraft-ci"
-              - git config --global user.email "ci@sourcecraft.local"
-              - git checkout -b release 2>/dev/null || git checkout release
+              - git checkout -b release
               - git add docs/
-              - git commit -m "feat: автоматическое обновление сайта" || echo "Нет изменений"
-              - git push origin release -f
+              - "git commit -m \"feat: автоматическое обновление сайта\""
+              - "git push origin release -f"
