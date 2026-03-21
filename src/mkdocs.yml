@@ -3,7 +3,6 @@ site_url: https://nikitakondrat.github.io/
 site_description: "Студент ИТМО"
 site_author: Никита Кондрат
 
-docs_dir: .
 
 nav:
   - Main page: index.md
