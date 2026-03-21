@@ -1,9 +1,3 @@
-on:
-  push:
-    workflows: build-site
-    filter:
-      branches: main
-
 workflows:
   build-site:
     tasks:
@@ -14,13 +8,16 @@ workflows:
             script:
               - python -m pip install --upgrade pip
               - "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
-              - mkdocs build -f src/mkdocs.yml -d docs
-              - echo "Сайт собран в папке ./docs"
-              - ls -la ./docs
+              # Собираем: конфиг в src/, вывод в корневой docs/
+              - mkdocs build -f src/mkdocs.yml -d ../docs
+              - echo "Сайт собран в ./docs"
+              - ls -la ../docs
 
           - name: publish-to-release-branch
             script:
-              - git checkout -b release
-              - git add ../docs
-              - "git commit -m \"feat: автоматическое обновление сайта\""
-              - "git push origin release -f"
+              - git config --global user.name "sourcecraft-ci"
+              - git config --global user.email "ci@sourcecraft.local"
+              - git checkout -b release 2>/dev/null || git checkout release
+              - git add docs/
+              - git commit -m "feat: автоматическое обновление сайта" || echo "Нет изменений"
+              - git push origin release -f
