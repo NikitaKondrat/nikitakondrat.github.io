@@ -210,3 +210,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# === Project-specific ignores === # <<< ADDED
+requirements.txt  # <<< ADDED
+src/              # <<< ADDED
