@@ -10,6 +10,8 @@ nav:
   - Labworks 2 semester:
       - labwork 1 Tutorial: labwork1.md
       - labwork 2 Tutorial: labwork2.md
+      - labwork 4 Tutorial: labwork4.md
+      - labwork 5 Tutorial: labwork5.md
 
 theme:
   name: simple-blog
