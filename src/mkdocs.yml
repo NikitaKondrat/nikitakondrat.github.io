@@ -7,11 +7,14 @@ site_author: Никита Кондрат
 nav:
   - Main page: index.md
   - About author: about.md
-  - Labworks 2 semester:
-      - labwork 1 Tutorial: labwork1.md
-      - labwork 2 Tutorial: labwork2.md
-      - labwork 4 Tutorial: labwork4.md
-      - labwork 5 Tutorial: labwork5.md
+  - Labworks 2 Semester:
+      - Labwork 1 Tutorial: labwork1.md
+      - Labwork 2 Tutorial: labwork2.md
+      - Labwork 4 Tutorial: labwork4.md
+      - Labwork 5 Tutorial: labwork5.md
+      - Labwork 6 Tutorial: labwork6.md
+      - Labwork 7 Tutorial: labwork7.md
+      - Labwork 8 Tutorial: labwork8.md
 
 theme:
   name: simple-blog
